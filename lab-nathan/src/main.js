@@ -2,8 +2,8 @@
 
 import React from 'react';
 import ReactDom from 'react-dom';
-
 import { BrowserRouter, Route } from 'react-router-dom';
+import NoteCreateForm from './component/note-create-form';
 
 class App extends React.Component {
   constructor(props) {
@@ -18,7 +18,7 @@ class App extends React.Component {
       <main>
         <BrowserRouter>
           <section>
-            <Route exact path='/create' />
+            <Route exact path='/create' component={NoteCreateForm} />
           </section>
         </BrowserRouter>
       </main>
