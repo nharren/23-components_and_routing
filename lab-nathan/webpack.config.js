@@ -5,6 +5,9 @@ const ExtractPlugin = require('extract-text-webpack-plugin');
 
 module.exports = {
   devtool: 'cheap-module-source-eval-map',
+  devServer: {
+    historyApiFallback: true
+  },
   entry: `${__dirname}/src/main.js`,
   output: {
     path: `${__dirname}/build`,

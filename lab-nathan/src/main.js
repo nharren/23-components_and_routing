@@ -26,7 +26,7 @@ class App extends React.Component {
       <main>
         <BrowserRouter>
           <section>
-            <Route exact path='/create' component={() => <NoteCreateForm app={this.getApp} />} />
+            <Route exact path='/create' component={() => <NoteCreateForm app={this.getApp()} />} />
           </section>
         </BrowserRouter>
       </main>
