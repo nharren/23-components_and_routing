@@ -4,6 +4,7 @@ import React from 'react';
 import ReactDom from 'react-dom';
 import { BrowserRouter, Route } from 'react-router-dom';
 import NoteCreateForm from './component/note-create-form';
+import NoteListPage from './component/note-list-page';
 
 class App extends React.Component {
   constructor(props) {
@@ -26,6 +27,7 @@ class App extends React.Component {
       <main>
         <BrowserRouter>
           <section>
+            <Route exact path='/' component={() => <NoteListPage app={this.getApp()} />} />
             <Route exact path='/create' component={() => <NoteCreateForm app={this.getApp()} />} />
           </section>
         </BrowserRouter>
