@@ -11,6 +11,14 @@ class App extends React.Component {
     this.state = {
       notes: []
     };
+    this.getApp = this.getApp.bind(this);
+  }
+
+  getApp() {
+    return {
+      state: this.state,
+      setState: this.setState.bind(this)
+    };
   }
 
   render() {
@@ -18,7 +26,7 @@ class App extends React.Component {
       <main>
         <BrowserRouter>
           <section>
-            <Route exact path='/create' component={NoteCreateForm} />
+            <Route exact path='/create' component={() => <NoteCreateForm app={this.getApp} />} />
           </section>
         </BrowserRouter>
       </main>

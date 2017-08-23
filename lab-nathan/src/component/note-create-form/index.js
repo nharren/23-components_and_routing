@@ -2,6 +2,7 @@
 
 import React from 'react';
 import uuidv1 from 'uuid/v1';
+import PropTypes from 'prop-types';
 
 class NoteCreateForm extends React.Component {
   constructor(props) {
@@ -24,6 +25,8 @@ class NoteCreateForm extends React.Component {
     let note = {
       id: uuidv1(),
       name: this.state.name,
+      editing: false,
+      complete: false,
       content: this.state.content
     };
 
@@ -55,5 +58,9 @@ class NoteCreateForm extends React.Component {
     );
   }
 }
+
+NoteCreateForm.propTypes = {
+  app: PropTypes.object
+};
 
 export default NoteCreateForm;
