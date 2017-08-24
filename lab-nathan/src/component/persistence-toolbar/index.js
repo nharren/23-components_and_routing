@@ -23,7 +23,7 @@ class NoteList extends React.Component {
 
   render() {
     return (
-      <div className='persistenceToolbar'>
+      <div className='persistence-toolbar'>
         <button
           name='delete'
           type='submit'

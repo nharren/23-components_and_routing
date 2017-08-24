@@ -3,6 +3,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
+import './_note-item.scss';
 
 class NoteItem extends React.Component {
   constructor(props) {
