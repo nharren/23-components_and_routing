@@ -14,12 +14,14 @@ class NoteItem extends React.Component {
   }
   
   render() {
-    if (!this.props.note) {
-      return <div></div>;
+    let classes = 'note-item';
+
+    if (this.props.app.state.selectedNote && this.props.app.state.selectedNote.id === this.props.note.id) {
+      classes += ' selected';
     }
     
     return (
-      <li onClick={this.handleClick} className='noteItem'>
+      <li onClick={this.handleClick} className={classes}>
         <Link to='/edit'>
           <h2>{this.props.note.name}</h2>
           <p>{this.props.note.content}</p>

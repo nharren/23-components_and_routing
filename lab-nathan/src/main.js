@@ -3,8 +3,7 @@ import ReactDom from 'react-dom';
 import { BrowserRouter } from 'react-router-dom';
 import AppSidebar from './component/app-sidebar/app-sidebar.js';
 import AppMain from './component/app-main/app-main.js';
-import './style/_reset.scss';
-import './style/base.scss';
+import './style/core.scss';
 
 class App extends React.Component {
   constructor(props) {
