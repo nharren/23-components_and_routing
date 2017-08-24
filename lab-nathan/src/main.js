@@ -25,6 +25,10 @@ class App extends React.Component {
     };
   }
 
+  componentDidUpdate() {
+    console.log('__STATE__', this.state);
+  }
+
   render() {
     return (
       <BrowserRouter>
