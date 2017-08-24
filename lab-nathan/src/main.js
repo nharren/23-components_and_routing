@@ -10,7 +10,8 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      notes: []
+      notes: [],
+      selectedNote: null
     };
     this.getApp = this.getApp.bind(this);
   }
