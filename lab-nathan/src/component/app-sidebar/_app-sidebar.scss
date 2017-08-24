@@ -1,11 +1,30 @@
-.appSidebar {
+.app-sidebar {
   background-color: #252526;
   float: left;
   width: 20%;
   height: 100%;
   position: fixed;
-  padding: 20px;
   box-sizing: border-box;
+}
+
+.sidebar-header {
+  background: #333;
+  border-bottom: 1px solid #333;
+  width: 100%;
+}
+
+.sidebar-header-title {
+  display: inline-block;
+  margin: 0;
+  padding: 10px 15px;  
+  vertical-align: middle;
+  color: #888;
+}
+
+.sidebar-header-create {
+  display: inline-block;
+  margin: 0;
+  vertical-align: middle;
 }
 
 h3 {
