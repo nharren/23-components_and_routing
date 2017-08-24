@@ -2,10 +2,9 @@
 
 import React from 'react';
 import ReactDom from 'react-dom';
-import { BrowserRouter, Route } from 'react-router-dom';
-import NoteCreateForm from './component/note-create-form';
+import { BrowserRouter } from 'react-router-dom';
 import AppSidebar from './component/app-sidebar';
-import NoteItem from './component/note-item';
+import AppMain from './component/app-main';
 import './_reset.scss';
 import './base.scss';
 
@@ -30,13 +29,8 @@ class App extends React.Component {
     return (
       <BrowserRouter>
         <main>
-          <section>
-            <AppSidebar app={this.getApp()} />
-          </section>
-          <section>
-            <Route exact path='/' component={() => <NoteItem app={this.getApp()} />} />
-            <Route exact path='/create' component={() => <NoteCreateForm app={this.getApp()} />} />
-          </section>
+          <AppSidebar app={this.getApp()} />
+          <AppMain app={this.getApp()} />
         </main>
       </BrowserRouter>
     );

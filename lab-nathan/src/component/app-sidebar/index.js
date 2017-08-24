@@ -9,12 +9,12 @@ import NoteList from '../note-list';
 class AppSidebar extends React.Component {
   render() {
     return (
-      <div className='appSidebar'>
+      <section className='appSidebar'>
         <h3>
           <Link to='/create'>Create</Link>
         </h3>
         <NoteList app={this.props.app} />
-      </div>
+      </section>
     );
   }
 }
