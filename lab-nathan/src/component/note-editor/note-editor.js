@@ -1,10 +1,8 @@
-'use strict';
-
 import React from 'react';
 import { withRouter } from 'react-router-dom'
 import PropTypes from 'prop-types';
 import uuidv1 from 'uuid/v1';
-import PersistenceToolbar from '../persistence-toolbar';
+import PersistenceToolbar from '../persistence-toolbar/persistence-toolbar.js';
 import './_note-editor.scss';
 
 class NoteEditor extends React.Component {

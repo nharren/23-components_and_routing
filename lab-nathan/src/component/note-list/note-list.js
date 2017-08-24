@@ -1,9 +1,7 @@
-'use strict';
-
 import './_note-list.scss';
 import React from 'react';
 import PropTypes from 'prop-types';
-import NoteItem from '../note-item';
+import NoteItem from '../note-item/note-item.js';
 
 class NoteList extends React.Component {
   render() {

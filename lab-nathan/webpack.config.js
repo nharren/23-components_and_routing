@@ -12,12 +12,13 @@ module.exports = {
   output: {
     path: `${__dirname}/build`,
     filename: 'bundle-[hash].js',
-    publicPath: '/'
+    publicPath: './'
   },
   plugins: [
     new HtmlPlugin({ template: `${__dirname}/src/index.html` }),
     new ExtractPlugin('bundle-[hash].css')
   ],
+  target: 'electron-main',
   module: {
     rules: [
       {

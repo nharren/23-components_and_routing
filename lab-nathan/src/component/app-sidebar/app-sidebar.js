@@ -1,10 +1,8 @@
-'use strict';
-
 import './_app-sidebar.scss';
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
-import NoteList from '../note-list';
+import NoteList from '../note-list/note-list.js';
 
 class AppSidebar extends React.Component {
   render() {

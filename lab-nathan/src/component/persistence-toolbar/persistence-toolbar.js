@@ -1,5 +1,3 @@
-'use strict';
-
 import './_persistence-toolbar.scss';
 import React from 'react';
 import PropTypes from 'prop-types';

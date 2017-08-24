@@ -1,9 +1,7 @@
-'use strict';
-
 import React from 'react';
 import { Route, Redirect } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import NoteEditor from '../note-editor'
+import NoteEditor from '../note-editor/note-editor.js'
 import './_app-main.scss';
 
 class AppMain extends React.Component {
