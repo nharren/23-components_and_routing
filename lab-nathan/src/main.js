@@ -4,7 +4,10 @@ import React from 'react';
 import ReactDom from 'react-dom';
 import { BrowserRouter, Route } from 'react-router-dom';
 import NoteCreateForm from './component/note-create-form';
-import NoteListPage from './component/note-list-page';
+import NoteList from './component/note-list';
+import NoteItem from './component/note-item';
+import './_reset.scss';
+import './base.scss';
 
 class App extends React.Component {
   constructor(props) {
@@ -25,14 +28,17 @@ class App extends React.Component {
 
   render() {
     return (
-      <main>
-        <BrowserRouter>
+      <BrowserRouter>
+        <main>
           <section>
-            <Route exact path='/' component={() => <NoteListPage app={this.getApp()} />} />
+            <NoteList app={this.getApp()} />
+          </section>
+          <section>
+            <Route exact path='/' component={() => <NoteItem app={this.getApp()} />} />
             <Route exact path='/create' component={() => <NoteCreateForm app={this.getApp()} />} />
           </section>
-        </BrowserRouter>
-      </main>
+        </main>
+      </BrowserRouter>
     );
   }
 }

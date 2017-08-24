@@ -1,7 +1,9 @@
 'use strict';
 
+import './_note-list.scss';
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 
 class NoteList extends React.Component {
   constructor(props) {
@@ -10,20 +12,23 @@ class NoteList extends React.Component {
   }
 
   handleClick(e) {
-    let noteId = e.target.getAttribute('data-noteId');
+    let noteId = e.target.parentElement.getAttribute('data-noteId');
     let note = this.props.app.state.notes.find(note => note.id === noteId);
     this.props.app.setState({ selectedNote: note });
   }
 
   render() {
     let noteListItems = this.props.app.state.notes.map((note, index) => {
-      return <li key={index} data-noteId={note.id} onClick={this.handleClick}>{note.name}</li>;
+      return <li key={index} data-noteId={note.id} onClick={this.handleClick}><Link to='/'>{note.name}</Link></li>;
     });
 
     return (
-      <ul>
-        {noteListItems}
-      </ul>
+      <div className='noteList'>
+        <h3><Link to='/create'>Create</Link></h3>
+        <ul>
+          {noteListItems}
+        </ul>
+      </div>
     );
   }
 }
