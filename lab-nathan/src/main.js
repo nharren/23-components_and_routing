@@ -5,8 +5,8 @@ import ReactDom from 'react-dom';
 import { BrowserRouter } from 'react-router-dom';
 import AppSidebar from './component/app-sidebar';
 import AppMain from './component/app-main';
-import './_reset.scss';
-import './base.scss';
+import './style/_reset.scss';
+import './style/base.scss';
 
 class App extends React.Component {
   constructor(props) {
