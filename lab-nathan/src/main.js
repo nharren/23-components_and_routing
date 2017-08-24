@@ -4,7 +4,7 @@ import React from 'react';
 import ReactDom from 'react-dom';
 import { BrowserRouter, Route } from 'react-router-dom';
 import NoteCreateForm from './component/note-create-form';
-import NoteList from './component/note-list';
+import AppSidebar from './component/app-sidebar';
 import NoteItem from './component/note-item';
 import './_reset.scss';
 import './base.scss';
@@ -31,7 +31,7 @@ class App extends React.Component {
       <BrowserRouter>
         <main>
           <section>
-            <NoteList app={this.getApp()} />
+            <AppSidebar app={this.getApp()} />
           </section>
           <section>
             <Route exact path='/' component={() => <NoteItem app={this.getApp()} />} />

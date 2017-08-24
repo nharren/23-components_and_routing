@@ -12,23 +12,24 @@ class NoteList extends React.Component {
   }
 
   handleClick(e) {
-    let noteId = e.target.parentElement.getAttribute('data-noteId');
+    let noteId = e.target.getAttribute('data-note-id');
     let note = this.props.app.state.notes.find(note => note.id === noteId);
     this.props.app.setState({ selectedNote: note });
   }
 
   render() {
     let noteListItems = this.props.app.state.notes.map((note, index) => {
-      return <li key={index} data-noteId={note.id} onClick={this.handleClick}><Link to='/'>{note.name}</Link></li>;
+      return (
+        <li key={index} onClick={this.handleClick}>
+          <Link to='/' data-note-id={note.id}>{note.name}</Link>
+        </li>
+      );
     });
 
     return (
-      <div className='noteList'>
-        <h3><Link to='/create'>Create</Link></h3>
-        <ul>
-          {noteListItems}
-        </ul>
-      </div>
+      <ul className='noteList'>
+        {noteListItems}
+      </ul>
     );
   }
 }
