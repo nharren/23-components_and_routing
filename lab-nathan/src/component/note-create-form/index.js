@@ -3,6 +3,7 @@
 import React from 'react';
 import uuidv1 from 'uuid/v1';
 import PropTypes from 'prop-types';
+import './_note-create-form.scss';
 
 class NoteCreateForm extends React.Component {
   constructor(props) {
@@ -41,12 +42,15 @@ class NoteCreateForm extends React.Component {
         <input
           name='name'
           type='text'
+          placeholder='Name'
           onChange={this.handleChange}
           required
         />
-        <input
+        <div className='separator' />
+        <textarea
           name='content'
           type='text'
+          placeholder='Message'
           onChange={this.handleChange}
           required
         />
