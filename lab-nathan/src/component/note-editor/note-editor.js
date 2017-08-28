@@ -32,6 +32,7 @@ class NoteEditor extends React.Component {
   handleKeyDown(e) {
     if (e.ctrlKey && e.key === 's') {
       this.save();
+      e.preventDefault();    
     }
   }
 
