@@ -1,8 +1,6 @@
 import React from 'react';
-import { withRouter } from 'react-router-dom'
 import PropTypes from 'prop-types';
 import uuidv1 from 'uuid/v1';
-import PersistenceToolbar from '../persistence-toolbar/persistence-toolbar.js';
 import './_note-editor.scss';
 
 class NoteEditor extends React.Component {
@@ -11,7 +9,7 @@ class NoteEditor extends React.Component {
 
     let selectedNote = props.app.state.selectedNote;
 
-    if (!props.create && selectedNote) {
+    if (selectedNote) {
       this.state = {
         name: selectedNote.name,
         content: selectedNote.content
@@ -23,10 +21,18 @@ class NoteEditor extends React.Component {
         content: ''
       };
     }
-    
+
+    this.handleKeyDown = this.handleKeyDown.bind(this);
     this.handleChange = this.handleChange.bind(this);
     this.save = this.save.bind(this);
+    this.create = this.create.bind(this);
     this.delete = this.delete.bind(this);
+  }
+
+  handleKeyDown(e) {
+    if (e.ctrlKey && e.key === 's') {
+      this.save();
+    }
   }
 
   handleChange(e) {
@@ -34,6 +40,22 @@ class NoteEditor extends React.Component {
   }
 
   save() {
+    let note = this.props.app.state.selectedNote;
+
+    if (note) {
+      let updatedNotes = this.props.app.state.notes.map(currentNote => {
+        return currentNote.id === note.id ? note : currentNote;
+      });
+
+      this.props.app.setState({ notes: updatedNotes });
+      this.props.app.setState({ selectedNote: note });
+    }
+    else {
+      this.create();
+    }
+  }
+
+  create() {
     let note = {
       id: uuidv1(),
       name: this.state.name,
@@ -47,7 +69,6 @@ class NoteEditor extends React.Component {
     }));
 
     this.props.app.setState({ selectedNote: note });
-    this.props.history.push('/edit');
   }
 
   delete() {
@@ -59,14 +80,12 @@ class NoteEditor extends React.Component {
         notes: newNotes,
         selectedNote: null
        });
-      this.props.history.push('/create');
     }
   }
 
   render() {
     return (
       <div className='noteEditor'>
-        <PersistenceToolbar save={this.save} delete={this.delete} />
         <input
           name='name'
           type='text'
@@ -79,6 +98,7 @@ class NoteEditor extends React.Component {
         <textarea
           name='content'
           type='text'
+          onKeyDown={this.handleKeyDown}
           value={this.state.content}          
           placeholder='Message'
           onChange={this.handleChange}
@@ -92,9 +112,6 @@ class NoteEditor extends React.Component {
 NoteEditor.propTypes = {
   app: PropTypes.object,
   create: PropTypes.bool,
-  match: PropTypes.object.isRequired,
-  location: PropTypes.object.isRequired,
-  history: PropTypes.object.isRequired
 };
 
-export default withRouter(NoteEditor);
+export default NoteEditor;

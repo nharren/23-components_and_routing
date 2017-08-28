@@ -4,6 +4,11 @@ import PropTypes from 'prop-types';
 import NoteItem from '../note-item/note-item.js';
 
 class NoteList extends React.Component {
+  constructor(props) {
+    super(props);
+  }
+
+
   render() {
     let notes = this.props.app.state.notes;
     let noteListItems = notes.map((note, index) => {

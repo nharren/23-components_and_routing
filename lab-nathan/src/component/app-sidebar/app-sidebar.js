@@ -6,13 +6,23 @@ import { Link } from 'react-router-dom';
 import NoteList from '../note-list/note-list.js';
 
 class AppSidebar extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.handleClick = this.handleClick.bind(this);
+  }
+
+  handleClick() {
+    this.props.app.setState({ selectedNote: null });
+  }
+  
   render() {
     return (
       <section className='app-sidebar'>
         <div className='sidebar-header'>
           <h4 className='sidebar-header-title'>NOTES</h4>
-          <h2 className='sidebar-header-create'>
-            <Link to='/create'>+</Link>
+          <h2 className='sidebar-header-create' onClick={this.handleClick}>
+            <Link to='/'>+</Link>
           </h2>
         </div>
         <ScrollArea
