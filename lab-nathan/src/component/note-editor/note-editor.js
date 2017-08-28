@@ -26,7 +26,6 @@ class NoteEditor extends React.Component {
     this.handleChange = this.handleChange.bind(this);
     this.save = this.save.bind(this);
     this.create = this.create.bind(this);
-    this.delete = this.delete.bind(this);
   }
 
   handleKeyDown(e) {
@@ -72,18 +71,6 @@ class NoteEditor extends React.Component {
     }));
 
     this.props.app.setState({ selectedNote: note });
-  }
-
-  delete() {
-    let selectedNote = this.props.app.state.selectedNote;
-    
-    if (selectedNote) {
-      let newNotes = this.props.app.state.notes.filter(note => note.id !== selectedNote.id);
-      this.props.app.setState({ 
-        notes: newNotes,
-        selectedNote: null
-       });
-    }
   }
 
   render() {
