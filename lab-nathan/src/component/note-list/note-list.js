@@ -1,11 +1,14 @@
-'use strict';
-
 import './_note-list.scss';
 import React from 'react';
 import PropTypes from 'prop-types';
-import NoteItem from '../note-item';
+import NoteItem from '../note-item/note-item.js';
 
 class NoteList extends React.Component {
+  constructor(props) {
+    super(props);
+  }
+
+
   render() {
     let notes = this.props.app.state.notes;
     let noteListItems = notes.map((note, index) => {
@@ -13,7 +16,7 @@ class NoteList extends React.Component {
     });
 
     return (
-      <ul className='noteList'>
+      <ul className='note-list'>
         {noteListItems}
       </ul>
     );

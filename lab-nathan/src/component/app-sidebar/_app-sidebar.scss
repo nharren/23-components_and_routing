@@ -1,22 +1,73 @@
 .app-sidebar {
+  display: flex;
+  flex-direction: column;
   background-color: #252526;
-  float: left;
+  min-width: 300px;
   width: 20%;
+}
+
+.area {
+  flex: 1;
+}
+
+.scrollarea-content {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  position: relative;
+}
+
+.scrollarea-content:focus {
+  outline: 0;
+}
+
+.scrollarea {
+  position: relative;
+  overflow: hidden;
+}
+
+.scrollbar-container:hover {
+  opacity: .4;
+}
+
+.vertical {
+  width: 15px;
   height: 100%;
-  position: fixed;
-  box-sizing: border-box;
+  right: 0;
+  top: 0;
+}
+
+.vertical .scrollbar {
+  width: 15px;
+  height: 20px;
+  background: black;
+  margin-left: 1px;
+}
+
+.scrollbar-container {
+  position: absolute;
+  background: none;
+  opacity: 0.1;
+  z-index: 9999;
+  -webkit-transition: all .2s;
+  -moz-transition: all .2s;
+  -ms-transition: all .2s;
+  -o-transition: all .2s;
+  transition: all .2s;
 }
 
 .sidebar-header {
   background: #333;
-  border-bottom: 1px solid #333;
   width: 100%;
+  display: flex;
+  align-items: center;
+  box-shadow: 0 0 10px 5px rgba(0, 0, 0, 0.2);
 }
 
 .sidebar-header-title {
-  display: inline-block;
+  flex: 1;
   margin: 0;
-  padding: 10px 15px;  
+  padding: 10px 15px 9px 15px;  
   vertical-align: middle;
   color: #888;
 }
@@ -25,6 +76,7 @@
   display: inline-block;
   margin: 0;
   vertical-align: middle;
+  padding: 0 15px;
 }
 
 h3 {
