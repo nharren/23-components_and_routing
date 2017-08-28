@@ -43,6 +43,8 @@ class NoteEditor extends React.Component {
     let note = this.props.app.state.selectedNote;
 
     if (note) {
+      note.name = this.state.name;
+      note.content = this.state.content;
       let updatedNotes = this.props.app.state.notes.map(currentNote => {
         return currentNote.id === note.id ? note : currentNote;
       });
@@ -85,7 +87,7 @@ class NoteEditor extends React.Component {
 
   render() {
     return (
-      <div className='noteEditor'>
+      <div className='noteEditor' onKeyDown={this.handleKeyDown}>
         <input
           name='name'
           type='text'
@@ -98,7 +100,6 @@ class NoteEditor extends React.Component {
         <textarea
           name='content'
           type='text'
-          onKeyDown={this.handleKeyDown}
           value={this.state.content}          
           placeholder='Message'
           onChange={this.handleChange}
