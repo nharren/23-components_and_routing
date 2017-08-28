@@ -9,7 +9,7 @@ let browserWindow
 function createWindow () {
   browserWindow = new BrowserWindow();
   browserWindow.loadURL(url.format({
-    pathname: path.join(__dirname, '/build/index.html'),
+    pathname: path.join(__dirname, '/build/electron.html'),
     protocol: 'file:',
     slashes: true
   }))
