@@ -6,7 +6,7 @@
   "scripts": {
     "build": "webpack",
     "watch": "webpack-dev-server --inline --hot",
-    "electron": "webpack && electron ."
+    "electron": "rd build -r && webpack && electron ."
   },
   "keywords": [],
   "author": "",
@@ -25,6 +25,7 @@
     "react": "^15.6.1",
     "react-dom": "^15.6.1",
     "react-router-dom": "^4.1.2",
+    "react-scrollbar": "^0.5.1",
     "sass-loader": "^6.0.6",
     "uuid": "^3.1.0",
     "webpack": "^3.5.5",

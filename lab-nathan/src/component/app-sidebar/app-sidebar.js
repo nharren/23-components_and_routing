@@ -1,6 +1,7 @@
 import './_app-sidebar.scss';
 import React from 'react';
 import PropTypes from 'prop-types';
+import ScrollArea from 'react-scrollbar/dist/no-css';
 import { Link } from 'react-router-dom';
 import NoteList from '../note-list/note-list.js';
 
@@ -14,8 +15,10 @@ class AppSidebar extends React.Component {
             <Link to='/create'>+</Link>
           </h2>
         </div>
-        
-        <NoteList app={this.props.app} />
+        <ScrollArea
+          className="area">
+          <NoteList app={this.props.app} />
+        </ScrollArea>
       </section>
     );
   }

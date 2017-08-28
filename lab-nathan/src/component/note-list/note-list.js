@@ -11,7 +11,7 @@ class NoteList extends React.Component {
     });
 
     return (
-      <ul className='noteList'>
+      <ul className='note-list'>
         {noteListItems}
       </ul>
     );
